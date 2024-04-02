@@ -15,5 +15,5 @@ jobs:
         uses: actions/checkout@v4.1.1
 
       - name: Run tests
-        run: yarn install && yarn cypress run --spec cypress/e2e/myTest.cy.js --reporter mochawesome
+        run: yarn install && yarn cypress run --spec cypress/e2e/ListsFeature.cy.js --reporter mochawesome
     

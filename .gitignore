@@ -2,3 +2,5 @@
 node_modules/
 mochawesome-report/
 yarn-error.log
+cypress/videos/
+reports/
