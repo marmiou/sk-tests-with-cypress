@@ -1,18 +1,15 @@
-import TodoListMePage from "../pageObjects/TodoListMePage"
+import TodoListMePage from '../pageObjects/TodoListMePage';
 
-describe("ToDo List Me Lists Feature", () => {
+describe('ToDo List Me Lists Feature', () => {
 
-    const todoListMePage = new TodoListMePage()
+  beforeEach(() => {
+    TodoListMePage.navigate();
+    TodoListMePage.resetLists();
+  });
 
-    beforeEach(() => {
-        todoListMePage.navigate()
-        todoListMePage.resetLists()
-    })
-
-    it("Create a new list with name'", () => {
-        todoListMePage.addNewList("Monday")
-        todoListMePage.verifyListCreated("Monday")
-        todoListMePage.verifyListEditorOpens("Monday")
-    })
-
-})
+  it("Create a new list with name'", () => {
+    TodoListMePage.addNewList('Monday');
+    TodoListMePage.verifyListCreated('Monday');
+    TodoListMePage.verifyListEditorOpens('Monday');
+  });
+});

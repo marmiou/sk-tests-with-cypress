@@ -1,18 +1,15 @@
-import TodoListMePage from "../pageObjects/TodoListMePage"
+import TodoListMePage from '../pageObjects/TodoListMePage';
 
-describe("Todo List Me List Editor Feature", () => {
+describe('Todo List Me List Editor Feature', () => {
 
-    let todoListMePage = new TodoListMePage()
+  beforeEach(() => {
+    TodoListMePage.navigate();
+    TodoListMePage.resetLists();
+    TodoListMePage.verifyListEditorOpens("Today's Tasks");
+  });
 
-    beforeEach(() => {
-        todoListMePage.navigate()
-        todoListMePage.resetLists()
-        todoListMePage.verifyListEditorOpens("Today's Tasks")
-
-    })
-
-    it("Add task in the To dos of Default Today's tasks List", () => {
-        todoListMePage.typeTask("One more thing to do")
-        todoListMePage.verifyTaskAdded("One more thing to do")
-    })
-})
+  it("Add task in the To dos of Default Today's tasks List", () => {
+    TodoListMePage.typeTask('One more thing to do');
+    TodoListMePage.verifyTaskAdded('One more thing to do');
+  });
+});
