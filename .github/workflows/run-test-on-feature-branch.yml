@@ -1,19 +1,29 @@
-name: Run tests on feature branches
+name: Run tests on main and feature branches
 
-
-on: 
+on:
   push:
     branches:
-      'feature/*'
+      - main
+      - 'feature/*'
 
 jobs:
   run-ui-tests:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14' # Specify the Node.js version you want to use
+
+      - name: Install dependencies
+        run: yarn install
+
       - name: Run tests
-        run: yarn install && yarn cypress run --spec cypress/e2e/ListsFeature.cy.js --reporter mochawesome
-    
+        run: yarn cy:run --spec "cypress/e2e/**/*.cy.js" --reporter mochawesome
