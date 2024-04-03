@@ -1,4 +1,4 @@
-name: Run tests on demand or push
+name: Run tests on demand
 
 on:
   workflow_dispatch:

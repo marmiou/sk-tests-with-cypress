@@ -1,4 +1,4 @@
-name: Run tests on main and feature branches
+name: Run tests automatically on push
 
 on:
   push:
