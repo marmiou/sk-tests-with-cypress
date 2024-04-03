@@ -11,7 +11,6 @@ describe("ToDo List Me Lists Feature", () => {
 
     it("Create a new list with name'", () => {
         todoListMePage.addNewList("Monday")
-
         todoListMePage.verifyListCreated("Monday")
         todoListMePage.verifyListEditorOpens("Monday")
     })

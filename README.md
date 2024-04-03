@@ -35,6 +35,7 @@ Or, to run a specific test via the CLI:
 
 Or, to run all e2e tests:
 #### `yarn cypress run --spec "cypress/e2e/**/*.cy.js" --reporter mochawesome`
+#### `yarn cy:run --spec "cypress/e2e/**/*.cy.js" --reporter mochawesome`
 
 Reports of the run can be found under the directory:
 #### `mochawesome/reports`

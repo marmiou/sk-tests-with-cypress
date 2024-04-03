@@ -7,12 +7,12 @@ describe("Todo List Me List Editor Feature", () => {
     beforeEach(() => {
         todoListMePage.navigate()
         todoListMePage.resetLists()
-        //Check that Today's tasks is in place before
+        todoListMePage.verifyListEditorOpens("Today's Tasks")
 
     })
 
     it("Add task in the To dos of Default Today's tasks List", () => {
-        todoListMePage.typeTask("One more thing to do");
-        todoListMePage.verifyTaskAdded("One more thing to do");
-    });
+        todoListMePage.typeTask("One more thing to do")
+        todoListMePage.verifyTaskAdded("One more thing to do")
+    })
 })
