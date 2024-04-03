@@ -19,6 +19,10 @@ To install Git Bash, download and install Git for Windows from [git-scm.com](htt
 Clone the repo from GitHub:
 #### `git clone git@github.com:marmiou/skedda-tests.git`
 
+In case you use the zip file instead of cloning the repository,you will need to:
+1. Unzip the file
+2. #### `cd skedda-tests/ && git init`
+
 To install dependencies:
 #### `yarn install`
 
@@ -32,6 +36,7 @@ To run the tests via the Cypress app:
 
 Or, to run a specific test via the CLI:
 #### `yarn cypress run --spec cypress/e2e/ListsFeature.cy.js --reporter mochawesome`
+#### `yarn cy:run --spec cypress/e2e/ListsFeature.cy.js --reporter mochawesome`
 
 Or, to run all e2e tests:
 #### `yarn cypress run --spec "cypress/e2e/**/*.cy.js" --reporter mochawesome`
