@@ -1,9 +1,9 @@
-# Skedda Tests
+# Cypress Tests
 <h1 align="center">Web Automation with Cypress</h1>
 
 ## Links
 
-- [Repo](https://github.com/marmiou/skedda-tests "Automation with Cypress framework")
+- [Repo](https://github.com/marmiou/sk-tests-with-cypress "Automation with Cypress framework")
 
 ## Prerequisites
 
@@ -17,11 +17,11 @@ To install Git Bash, download and install Git for Windows from [git-scm.com](htt
 ## Installation
 
 Clone the repo from GitHub:
-#### `git clone git@github.com:marmiou/skedda-tests.git`
+#### `git clone git@github.com:marmiou/sk-tests-with-cypress.git`
 
 In case you use the zip file instead of cloning the repository,you will need to:
 1. Unzip the file
-2. #### `cd skedda-tests/ && git init`
+2. #### `cd sk-tests-with-cypress/ && git init`
 
 To install dependencies:
 #### `yarn install`

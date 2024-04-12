@@ -1,0 +1,44 @@
+name: CI Auto tests on Main Push
+
+on:
+  push:
+    branches:
+      - feature
+  workflow_run:
+    workflows: ["Deploy Environment"]  # Specify the name of the other workflow
+    types:
+      - completed
+
+jobs:
+  # Parallelizing Tests with Different Environments and Operating Systems
+  parallel_tests:
+    runs-on: ${{ matrix.os }}
+    if: ${{ github.event.workflow_run.conclusion != 'failure' }} # Run only if the completed job is not a failed job
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        config: [ cypress.config.js, cypress.production.config.js ] # Add more testing tags as needed
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: dependencies
+        run: yarn install
+        timeout-minutes: 5 # Add a timeout of 5 minutes for installing dependencies
+
+      - name: debug
+        run: |
+          ls -l /home/runner/work/skedda-tests/skedda-tests
+        timeout-minutes: 2 # Add a timeout of 2 minutes for debugging
+        if: steps.dependencies.outcome == 'success' #The step will run if the dependencies have run successful
+
+      - name: Run Tests on different Environment
+        run: |
+          yarn cy:run --spec "cypress/e2e/**/*.cy.js" --reporter mochawesome --config-file ${{ matrix.config }}
+        timeout-minutes: 10 # Add a timeout of 10 minutes for running tests
+        if: steps.debug.outcome == 'success' #The step will run if the dependencies have run successful
