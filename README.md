@@ -53,6 +53,10 @@ Reports of the run can be found under the directory:
 - Cypress
 - Mochawesome reporter
 
+## Screenrecording
+
+![Alt Text](https://github.com/marmiou/tests-gif/blob/main/sk-tests-with-cypress/cypress-test.gif)
+
 ## Author
 
 **Markella Efthymiou**
